@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G2M · Maquette de refonte</title>
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="G2M · Proposition de refonte du site">
+<meta property="og:description" content="Maquette de page d'accueil proposée par Mathieu Lambert, à partir des contenus publics de g2m-ai.com.">
+<meta property="og:url" content="https://www.mathieu-lambert.com/maquettes/g2m/">
+<meta property="og:image" content="https://www.mathieu-lambert.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : planche technique — fond gris clair quadrillé, encre graphite, un seul bleu cobalt pour l'action */
+:root{
+  --paper:#ECEEF1; --sheet:#FFFFFF; --ink:#111418; --muted:#555C66; --rule:#C9CED6; --grid:rgba(17,20,24,.05);
+  --cobalt:#2340E8; --cobalt-ink:#FFFFFF; --night:#0E1116;
+  --display:"Archivo", "Arial Narrow", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.wrap{max-width:76rem;margin:0 auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.02;text-wrap:balance}
+.tag{font:500 .75rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font:600 1rem/1 var(--body);padding:1rem 1.35rem;text-decoration:none;border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+.btn.primary{background:var(--cobalt);border-color:var(--cobalt);color:var(--cobalt-ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.btn.primary:hover{box-shadow:3px 3px 0 var(--ink)}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+/* Bandeau maquette */
+.mock{position:relative;z-index:6;background:var(--night);color:#C9D1DC;font:500 .8rem/1.4 var(--mono);text-align:center;padding:.55rem 1rem;letter-spacing:.03em}
+.mock b{color:#fff}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:5;background:rgba(236,238,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:1rem}
+.logo{font:800 1.6rem/1 var(--display);letter-spacing:-.02em;text-decoration:none;display:flex;align-items:baseline;gap:.5rem}
+.logo small{font:500 .7rem/1 var(--mono);letter-spacing:.12em;color:var(--muted)}
+nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.bar .btn{padding:.7rem 1rem;font-size:.9rem}
+@media (max-width:900px){nav{display:none}}
+@media (max-width:520px){.bar .btn{display:none}}
+
+/* Ouverture */
+.hero{padding-block:clamp(3rem,8vw,6.5rem) clamp(2.5rem,6vw,4.5rem);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,4rem);align-items:end}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2.8rem,7.2vw,5.6rem);font-weight:800;letter-spacing:-.035em;text-transform:uppercase}
+.hero h1 span{display:block}
+.hero h1 .blue{color:var(--cobalt)}
+.hero .lead{font-size:clamp(1.1rem,1.8vw,1.3rem);color:var(--muted);max-width:36rem;margin:1.75rem 0 2rem}
+.ctas{display:flex;flex-wrap:wrap;gap:.8rem}
+
+/* Schéma pipeline */
+.schema{background:var(--sheet);border:1.5px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:1.4rem;display:grid;gap:1rem;min-width:0}
+.schema .head{display:flex;justify-content:space-between;gap:1rem}
+.pipe{list-style:none;margin:0;padding:0;display:grid;gap:.55rem;counter-reset:p}
+.pipe li{display:grid;grid-template-columns:2.2rem 1fr auto;align-items:center;gap:.8rem;padding:.7rem .8rem;border:1px solid var(--rule);counter-increment:p}
+.pipe li::before{content:counter(p,decimal-leading-zero);font:500 .8rem/1 var(--mono);color:var(--muted)}
+.pipe li strong{font-weight:600}
+.pipe li em{font:400 .78rem/1 var(--mono);font-style:normal;color:var(--muted);white-space:nowrap}
+.pipe li.on{border-color:var(--cobalt);background:rgba(35,64,232,.06)}
+.pipe li.on em{color:var(--cobalt)}
+.schema p{margin:0;font-size:.85rem;color:var(--muted)}
+
+/* Chiffres */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);background:var(--sheet)}
+.stats div{padding:1.4rem clamp(1rem,3vw,2rem);border-right:1px solid var(--rule);min-width:0}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font:800 clamp(2rem,4.5vw,3.2rem)/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stats span{font-size:.9rem;color:var(--muted)}
+@media (max-width:620px){.stats{grid-template-columns:1fr}.stats div{border-right:0;border-bottom:1px solid var(--rule)}.stats div:last-child{border-bottom:0}}
+
+/* Sections */
+section{padding-block:clamp(3.5rem,8vw,6rem)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:end;margin-bottom:2.5rem}
+@media (max-width:800px){.sh{grid-template-columns:1fr;gap:1rem}}
+.sh h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800;letter-spacing:-.025em}
+.sh p{margin:0;color:var(--muted);max-width:34rem}
+
+/* Parcours d'offre */
+.path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1.5px solid var(--ink);background:var(--sheet)}
+@media (max-width:860px){.path{grid-template-columns:1fr}}
+.step{padding:2rem 1.6rem;border-right:1px solid var(--rule);display:grid;gap:.9rem;align-content:start;position:relative;min-width:0}
+.step:last-child{border-right:0}
+@media (max-width:860px){.step{border-right:0;border-bottom:1px solid var(--rule)}.step:last-child{border-bottom:0}}
+.step .n{font:500 .8rem/1 var(--mono);color:var(--cobalt)}
+.step h3{font-size:1.7rem;font-weight:700;letter-spacing:-.01em}
+.step p{margin:0;color:var(--muted)}
+.step a{font-weight:600;text-decoration:none;border-bottom:1.5px solid currentColor;justify-self:start;margin-top:.4rem}
+.step.key{background:var(--ink);color:#F1F3F6}
+.step.key p{color:#AEB5C0}
+.step.key .n{color:#8EA0FF}
+.step .badge{justify-self:start;font:500 .7rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:.35rem .5rem;background:var(--cobalt);color:#fff}
+
+/* Cas d'usage */
+.cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,21rem),1fr));gap:1rem}
+.case{background:var(--sheet);border:1px solid var(--rule);padding:1.5rem;display:grid;gap:.8rem;text-decoration:none;align-content:start;transition:border-color .2s,transform .2s}
+.case:hover{border-color:var(--ink);transform:translateY(-3px)}
+.case .top{display:flex;justify-content:space-between;gap:1rem}
+.case h3{font:700 1.3rem/1.2 var(--display)}
+.case .cap{font:500 .85rem/1.3 var(--mono);color:var(--cobalt)}
+.case .go{font-weight:600;font-size:.9rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.case,.case:hover{transition:none;transform:none}}
+
+/* Approche */
+.night{background:var(--night);color:#EEF1F5}
+.night .sh p,.night .tag{color:#9AA3B0}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5rem}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}}
+.pillars div{border-top:1.5px solid #3A414C;padding-top:1.2rem;display:grid;gap:.7rem}
+.pillars h3{font-size:1.5rem;font-weight:700}
+.pillars p{margin:0;color:#AEB5C0}
+.commit{margin-top:3rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.commit span{font:500 .85rem/1 var(--mono);border:1px solid #3A414C;padding:.6rem .8rem;color:#EEF1F5}
+.commit p{margin:0 0 0 .6rem;color:#9AA3B0;font-size:.95rem;flex:1 1 18rem}
+
+/* Financement */
+.fund{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1.5px solid var(--ink);background:var(--sheet)}
+@media (max-width:860px){.fund{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.fund{grid-template-columns:1fr}}
+.fund div{padding:1.6rem;border-right:1px solid var(--rule);display:grid;gap:.5rem;align-content:start;min-width:0}
+.fund div:last-child{border-right:0}
+@media (max-width:860px){.fund div{border-bottom:1px solid var(--rule)}}
+.fund b{font:800 2.4rem/1 var(--display);letter-spacing:-.03em;color:var(--cobalt)}
+.fund h3{font-size:1.1rem}
+.fund p{margin:0;font-size:.9rem;color:var(--muted)}
+.note{font-size:.82rem;color:var(--muted);margin-top:.9rem}
+
+/* Équipe (à fournir) */
+.team{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,14rem),1fr));gap:1rem}
+.person{background:var(--sheet);border:1px dashed var(--muted);padding:1rem;display:grid;gap:.6rem}
+.person .ph{aspect-ratio:4/5;max-width:100%;background:repeating-linear-gradient(45deg,#E3E6EA 0 10px,#EDEFF2 10px 20px);display:grid;place-items:center;font:500 .75rem/1.3 var(--mono);color:var(--muted);text-align:center;padding:1rem}
+.person b{font-weight:600}
+.person span{font-size:.88rem;color:var(--muted)}
+
+/* Secteurs + sécurité */
+.duo{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:2rem}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+.sectors{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.sectors li{list-style:none;border:1px solid var(--rule);background:var(--sheet);padding:.5rem .8rem;font-size:.95rem}
+.sectors{padding:0}
+.secure{background:var(--sheet);border:1.5px solid var(--ink);padding:1.6rem;display:grid;gap:.8rem;align-content:start}
+.secure ul{margin:0;padding-left:1.1rem;display:grid;gap:.35rem}
+.secure .certs{display:flex;gap:.5rem;flex-wrap:wrap}
+.secure .certs span{font:500 .8rem/1 var(--mono);padding:.45rem .6rem;border:1px solid var(--ink)}
+
+/* Fin */
+.final{background:var(--cobalt);color:#fff}
+.final .in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end}
+@media (max-width:800px){.final .in{grid-template-columns:1fr}}
+.final h2{font-size:clamp(2.4rem,6vw,4.8rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase}
+.final p{margin:1rem 0 0;max-width:34rem;color:#DCE2FF}
+.final .btn{background:#fff;color:var(--cobalt);border-color:#fff}
+.final .btn:hover{box-shadow:3px 3px 0 var(--night)}
+footer{background:var(--night);color:#AEB5C0;font-size:.9rem;padding-block:2.5rem}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:1.5rem}
+footer b{color:#fff;display:block;margin-bottom:.3rem}
+footer .legal{margin-top:2rem;padding-top:1rem;border-top:1px solid #2A3038;font:400 .78rem/1.4 var(--mono)}
+</style>
+</head>
+<body>
+
+<div class="mock"><b>Maquette de refonte</b> · proposition non officielle préparée par Mathieu Lambert, à partir des contenus publics de g2m-ai.com · <a href="https://www.mathieu-lambert.com/" style="color:#fff">mathieu-lambert.com</a></div>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" id="top">G2M <small>CONSEIL &amp; DÉVELOPPEMENT IA</small></a>
+    <nav aria-label="Navigation principale"><ul>
+      <li><a href="#offre">Offre</a></li>
+      <li><a href="#cas">Cas d'usage</a></li>
+      <li><a href="#approche">Approche</a></li>
+      <li><a href="#financement">Financement</a></li>
+      <li><a href="https://g2m-ai.com/expertise-developpement.html">R&amp;D</a></li>
+    </ul></nav>
+    <a class="btn primary" href="#contact">Réserver un diagnostic</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <p class="tag">Pierrelatte · Saint-Priest · TPE, PME et ETI</p>
+      <h1><span>Le métier</span><span>d'abord.</span><span class="blue">L'IA ensuite.</span></h1>
+      <p class="lead">Conseil et développement sur mesure en intelligence artificielle : de la formation à la mise en production, en passant par le diagnostic de maturité IA.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#contact">Réserver un diagnostic de maturité IA →</a>
+        <a class="btn" href="#cas">Voir les cas d'usage</a>
+      </div>
+    </div>
+    <aside class="schema" aria-label="Exemple de chaîne IA">
+      <div class="head"><span class="tag">Cas type · BTP, marché public</span><span class="tag">Génération de documents</span></div>
+      <ol class="pipe">
+        <li><strong>Dossier de consultation</strong><em>PDF, plans, CCTP</em></li>
+        <li><strong>Extraction</strong><em>pièces, exigences</em></li>
+        <li class="on"><strong>Structuration par l'IA</strong><em>base métier</em></li>
+        <li><strong>Mémoire technique</strong><em>brouillon généré</em></li>
+        <li><strong>Relecture humaine</strong><em>validation</em></li>
+      </ol>
+      <p>Une chaîne pensée à partir du métier : l'IA prépare, l'expert décide.</p>
+    </aside>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div><b>+50</b><span>entreprises accompagnées</span></div>
+      <div><b>8,5/10</b><span>satisfaction moyenne des formations</span></div>
+      <div><b>30+</b><span>projets de R&amp;D menés jusqu'en production</span></div>
+    </div>
+  </div>
+
+  <section id="offre">
+    <div class="wrap">
+      <div class="sh">
+        <div><p class="tag">Offre</p><h2>Trois étapes, dans cet ordre</h2></div>
+        <p>On ne commence pas par la technologie. On forme les équipes, on mesure où l'IA crée de la valeur, puis on construit ce qui sert vraiment.</p>
+      </div>
+      <div class="path">
+        <div class="step">
+          <span class="n">01 / FORMATION</span>
+          <h3>Comprendre et pratiquer</h3>
+          <p>Des formations à l'IA adaptées à vos métiers, pour que vos équipes sachent ce qu'elles peuvent en attendre. Finançables par votre OPCO.</p>
+          <a href="https://g2m-ai.com/formation.html">Les formations</a>
+        </div>
+        <div class="step key">
+          <span class="badge">Point de départ conseillé</span>
+          <span class="n">02 / DIAGNOSTIC</span>
+          <h3>Mesurer votre maturité IA</h3>
+          <p>Un état des lieux de vos processus, de vos données et de vos priorités, avec les cas d'usage à fort retour sur investissement.</p>
+          <a href="https://g2m-ai.com/diagnostic.html">Le diagnostic</a>
+        </div>
+        <div class="step">
+          <span class="n">03 / DÉVELOPPEMENT</span>
+          <h3>Construire sur mesure</h3>
+          <p>Des solutions IA conçues pour vos processus et vos contraintes, de la preuve de concept à la mise en production.</p>
+          <a href="https://g2m-ai.com/developpement.html">Le développement</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cas" style="padding-top:0">
+    <div class="wrap">
+      <div class="sh">
+        <div><p class="tag">Réalisations</p><h2>Des cas d'usage, pas des promesses</h2></div>
+        <p>Chaque cas part d'un problème métier précis. Le détail de chaque projet : contexte, solution, résultats.</p>
+      </div>
+      <div class="cases">
+        <a class="case" href="https://g2m-ai.com/construction-environnement-decarbonation.html"><div class="top"><span class="tag">Cas 01</span><span class="tag">Construction · Environnement</span></div><h3>Décarbonation</h3><span class="cap">Extraction et structuration de documents</span><span class="go">Lire le cas →</span></a>
+        <a class="case" href="https://g2m-ai.com/btp-marche-public.html"><div class="top"><span class="tag">Cas 02</span><span class="tag">BTP</span></div><h3>Marché public</h3><span class="cap">Génération de documents métiers</span><span class="go">Lire le cas →</span></a>
+        <a class="case" href="https://g2m-ai.com/ferroviaire-veille-reglementaire.html"><div class="top"><span class="tag">Cas 03</span><span class="tag">Ferroviaire</span></div><h3>Veille réglementaire</h3><span class="cap">Veille réglementaire automatisée</span><span class="go">Lire le cas →</span></a>
+        <a class="case" href="https://g2m-ai.com/industrie-graphique.html"><div class="top"><span class="tag">Cas 04</span><span class="tag">Industrie graphique</span></div><h3>Automatisation du SI</h3><span class="cap">Automatisation et intégration SI</span><span class="go">Lire le cas →</span></a>
+        <a class="case" href="https://g2m-ai.com/chirurgie-esthetique-marketing.html"><div class="top"><span class="tag">Cas 05</span><span class="tag">Santé · Marketing</span></div><h3>Veille concurrentielle</h3><span class="cap">Veille concurrentielle</span><span class="go">Lire le cas →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="approche" class="night">
+    <div class="wrap">
+      <div class="sh">
+        <div><p class="tag">Approche</p><h2>Notre façon de travailler</h2></div>
+        <p>Avant chaque mission, le périmètre est fixé par écrit : ce qui est inclus, ce qui ne l'est pas, et comment l'impact sera mesuré.</p>
+      </div>
+      <div class="pillars">
+        <div><span class="tag">01</span><h3>Le métier d'abord, la technologie ensuite</h3><p>Nous diagnostiquons votre besoin réel avant de proposer une solution technique.</p></div>
+        <div><span class="tag">02</span><h3>Sur mesure, pas sur étagère</h3><p>Chaque solution est conçue pour votre contexte, pour créer de la valeur sans dépendance technologique.</p></div>
+        <div><span class="tag">03</span><h3>Indépendance technologique</h3><p>Un conseil objectif, des solutions ouvertes et évolutives qui préservent votre liberté de choix.</p></div>
+      </div>
+      <div class="commit"><span>Budget</span><span>Délais</span><span>Livrables</span><span>ROI mesurable</span><p>Quatre engagements écrits, avant de commencer.</p></div>
+    </div>
+  </section>
+
+  <section id="financement">
+    <div class="wrap">
+      <div class="sh">
+        <div><p class="tag">Financement</p><h2>Votre projet IA coûte moins que vous ne le pensez</h2></div>
+        <p>Nous vous aidons à mobiliser les dispositifs de financement adaptés à votre entreprise.</p>
+      </div>
+      <div class="fund">
+        <div><b>20&nbsp;%</b><h3>Crédit d'impôt innovation</h3><p>Prestations IA finançables jusqu'à 20 %, grâce à l'agrément CII de G2M.</p></div>
+        <div><b>50&nbsp;%</b><h3>Bpifrance</h3><p>Jusqu'à 50 % d'aide sur les projets éligibles.</p></div>
+        <div><b>OPCO</b><h3>Formation</h3><p>Formations finançables par votre opérateur de compétences.</p></div>
+        <div><b>ENE</b><h3>Autres dispositifs</h3><p>Dispositifs régionaux et nationaux selon votre projet.</p></div>
+      </div>
+      <p class="note">Les conditions de prise en charge dépendent de l'éligibilité de votre entreprise et des dispositifs en vigueur.</p>
+    </div>
+  </section>
+
+  <section id="equipe" style="padding-top:0">
+    <div class="wrap">
+      <div class="sh">
+        <div><p class="tag">Équipe</p><h2>Les personnes derrière vos projets</h2></div>
+        <p>Des experts issus de la recherche, de l'ingénierie et de la data science. Vos clients veulent savoir à qui ils parlent.</p>
+      </div>
+      <div class="team">
+        <div class="person"><div class="ph">Photo à fournir</div><b>Prénom Nom</b><span>Fondateur · rôle</span></div>
+        <div class="person"><div class="ph">Photo à fournir</div><b>Prénom Nom</b><span>Fondateur · rôle</span></div>
+        <div class="person"><div class="ph">Photo à fournir</div><b>Prénom Nom</b><span>Data scientist</span></div>
+        <div class="person"><div class="ph">Photo à fournir</div><b>Prénom Nom</b><span>Ingénieur IA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap duo">
+      <div>
+        <p class="tag">Secteurs</p>
+        <h2 style="font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:800;letter-spacing:-.02em">Douze secteurs accompagnés</h2>
+        <ul class="sectors">
+          <li>Industrie</li><li>BTP &amp; Construction</li><li>Ferroviaire</li><li>Transport &amp; Mobilité</li><li>Santé</li><li>Énergie</li><li>Environnement</li><li>Services</li><li>Commerce &amp; Retail</li><li>Logistique</li><li>Immobilier</li><li>Secteur public</li>
+        </ul>
+      </div>
+      <div class="secure">
+        <p class="tag">Données</p>
+        <h3 style="font-size:1.5rem">Vos données restent en Europe</h3>
+        <ul>
+          <li>Hébergement dans des datacenters français et européens</li>
+          <li>Hébergeurs certifiés de préférence</li>
+          <li>Infrastructures Tier III aux engagements énergétiques</li>
+        </ul>
+        <div class="certs"><span>ISO 27001</span><span>HDS</span><span>Tier III</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="final">
+    <div class="wrap in">
+      <div>
+        <h2>Prêt à passer à l'action&nbsp;?</h2>
+        <p>Parlons de vos enjeux data et IA, et voyons ensemble comment nous pouvons vous accompagner.</p>
+      </div>
+      <a class="btn" href="https://g2m-ai.com/contact.html">Réserver un diagnostic →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><b>G2M</b>Conseil et développement sur mesure en intelligence artificielle.</div>
+      <div><b>Siège</b>1 avenue Maréchal de Lattre de Tassigny<br>26700 Pierrelatte</div>
+      <div><b>Saint-Priest</b>Immeuble Woodclub, 97 allée Alexandre Borodine, ét. 1<br>Saint-Priest</div>
+      <div><b>Téléphone</b>04 75 78 26 62</div>
+    </div>
+    <p class="legal">SAS G2M AI · SIREN 913 016 390 · Maquette non officielle : contenus repris du site public, mise en page proposée.</p>
+  </div>
+</footer>
+</body>
+</html>
