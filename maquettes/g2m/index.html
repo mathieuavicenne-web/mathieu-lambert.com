@@ -171,6 +171,21 @@ footer{background:var(--night);color:#AEB5C0;font-size:.9rem;padding-block:2.5re
 footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:1.5rem}
 footer b{color:#fff;display:block;margin-bottom:.3rem}
 footer .legal{margin-top:2rem;padding-top:1rem;border-top:1px solid #2A3038;font:400 .78rem/1.4 var(--mono)}
+
+/* Garde-fous mobile */
+.hero>*{min-width:0}
+.hero h1{overflow-wrap:break-word;hyphens:manual}
+@media (max-width:600px){
+  .hero h1{font-size:clamp(2rem,10.4vw,3rem);letter-spacing:-.03em}
+  .logo small{display:none}
+  .pipe li{grid-template-columns:1.8rem 1fr}
+  .pipe li em{grid-column:2;white-space:normal}
+  .schema .head{flex-direction:column;gap:.4rem}
+  .schema{box-shadow:5px 5px 0 var(--ink)}
+  .final h2{font-size:clamp(1.9rem,9vw,2.6rem)}
+  .sh h2{font-size:clamp(1.7rem,8vw,2.2rem)}
+  .mock{font-size:.72rem}
+}
 </style>
 </head>
 <body>
