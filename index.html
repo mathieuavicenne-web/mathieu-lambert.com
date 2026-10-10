@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mathieu Lambert</title>
+<meta name="description" content="Mathieu Lambert, Lyon : logiciels métier et automatisation, sites web et génération de leads, conseil en direction et stratégie de communication.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : colonne éditoriale unique, sections séparées par de simples filets, un schéma de flux en ouverture */
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --ink:#161B26; --muted:#566074; --line:#DAE0E8;
+  --accent:#23458F; --accent-soft:#E2E9F5;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11151D; --surface:#181E29; --ink:#E6EAF1; --muted:#9AA5B8; --line:#2A3242;
+  --accent:#8FB1F2; --accent-soft:#1B2538; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11151D; --surface:#181E29; --ink:#E6EAF1; --muted:#9AA5B8; --line:#2A3242;
+  --accent:#8FB1F2; --accent-soft:#1B2538; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);margin:0}
+.wrap{max-width:68rem;margin:0 auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.1;text-wrap:balance;margin:0}
+.label{font:500 .75rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* En-tête */
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1.25rem;border-bottom:1px solid var(--line)}
+.brand{font:700 1.15rem/1 var(--display);color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+@media (max-width:640px){nav{display:none}}
+
+/* Ouverture */
+.hero{padding-block:clamp(3rem,8vw,6rem) clamp(2.5rem,6vw,4.5rem);display:grid;gap:2.5rem}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);letter-spacing:-.02em;max-width:16ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{font-size:clamp(1.1rem,2vw,1.3rem);color:var(--muted);max-width:40rem;margin:0}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.btn{display:inline-block;background:var(--accent);color:var(--bg);font-weight:600;padding:.8rem 1.3rem;border-radius:6px;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+
+/* Schéma de flux */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.flow li{list-style:none;flex:1 1 9rem;padding:1rem 1.1rem;border-right:1px solid var(--line);position:relative;min-width:0}
+.flow li:last-child{border-right:0}
+.flow .step{font:500 .72rem/1 var(--mono);color:var(--accent);letter-spacing:.06em}
+.flow strong{display:block;font:600 1rem/1.3 var(--body);margin-top:.4rem}
+.flow span.k{display:block;font-size:.85rem;color:var(--muted)}
+.flow-cap{font-size:.9rem;color:var(--muted);margin:.75rem 0 0}
+@media (max-width:640px){.flow li{flex-basis:50%;border-bottom:1px solid var(--line)}}
+
+/* Sections */
+section{padding-block:clamp(3rem,7vw,5rem);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:.75rem;margin-bottom:2.5rem;max-width:44rem}
+.sec-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.01em}
+.sec-head p{color:var(--muted);margin:0}
+
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.svc{background:var(--surface);padding:1.75rem;display:grid;gap:.85rem;align-content:start;min-width:0}
+.svc h3{font-size:1.4rem}
+.svc p{margin:0;color:var(--muted)}
+.svc ul{margin:0;padding-left:1.1rem;display:grid;gap:.3rem}
+.svc .proof{font-size:.9rem;border-top:1px dashed var(--line);padding-top:.85rem;color:var(--ink)}
+.svc .proof b{font-weight:600}
+.svc .tech{font:400 .8rem/1.5 var(--mono);color:var(--muted);margin:0}
+
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:2rem;counter-reset:m}
+.method div{display:grid;gap:.5rem;align-content:start}
+.method div::before{counter-increment:m;content:"0" counter(m);font:500 .8rem/1 var(--mono);color:var(--accent)}
+.method h3{font-size:1.2rem}
+.method p{margin:0;color:var(--muted)}
+
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem)}
+@media (max-width:800px){.about{grid-template-columns:1fr}}
+.about .text p{margin:0 0 1rem;max-width:38rem}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--line)}
+.timeline li{padding:0 0 1.25rem 1.25rem;position:relative}
+.timeline li::before{content:"";position:absolute;left:-6px;top:.45rem;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.timeline .when{font:500 .8rem/1.4 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.timeline .what{font-weight:600}
+.timeline .where{color:var(--muted);font-size:.95rem}
+
+.contact{background:var(--accent-soft);border-radius:10px;padding:clamp(1.75rem,5vw,3rem);display:grid;gap:1.5rem}
+.contact h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.contact p{margin:0;max-width:40rem}
+.coords{display:flex;flex-wrap:wrap;gap:1rem 2.5rem}
+.coords div{display:grid;gap:.25rem}
+.coords .v{font:600 1.1rem/1.3 var(--body);user-select:all;word-break:break-word}
+
+footer{border-top:1px solid var(--line);padding-block:2rem 3rem;font-size:.85rem;color:var(--muted)}
+footer details summary{cursor:pointer;color:var(--ink)}
+footer .legal{display:grid;gap:.5rem;margin-top:1rem;max-width:44rem}
+footer .legal p{margin:0}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" id="top">Mathieu Lambert</a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#methode">Méthode</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <span class="label">Lyon · logiciel, web et direction</span>
+    <h1>Je fais le lien entre <em>votre métier</em> et votre gestion.</h1>
+    <p class="lead">Directeur d'établissement et chef de projet informatique, je conçois les outils qui font tourner une structure : paiements en ligne, factures et paie automatisées, sites qui génèrent des contacts. Et je vous aide à piloter ce qui va autour.</p>
+    <div class="cta">
+      <a class="btn" href="#contact">Parlons de votre projet</a>
+      <a class="btn ghost" href="#services">Voir les services</a>
+    </div>
+    <div>
+      <ol class="flow" aria-label="Exemple de chaîne automatisée">
+        <li><span class="step">ÉTAPE 1</span><strong>Inscription</strong><span class="k">formulaire en ligne</span></li>
+        <li><span class="step">ÉTAPE 2</span><strong>Paiement</strong><span class="k">carte, échéancier</span></li>
+        <li><span class="step">ÉTAPE 3</span><strong>Facture</strong><span class="k">générée et envoyée</span></li>
+        <li><span class="step">ÉTAPE 4</span><strong>Comptabilité</strong><span class="k">export prêt à saisir</span></li>
+      </ol>
+      <p class="flow-cap">Une chaîne que j'ai construite pour une école : plus aucune ressaisie entre l'inscription d'un élève et la comptabilité.</p>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="sec-head">
+      <span class="label">Services</span>
+      <h2>Quatre façons de travailler ensemble</h2>
+      <p>Pour les écoles, organismes de formation, associations et PME qui veulent gagner du temps et des clients sans monter une équipe technique.</p>
+    </div>
+    <div class="services">
+      <article class="svc">
+        <h3>Logiciel métier et automatisation</h3>
+        <p>Des outils taillés pour votre fonctionnement, plutôt qu'un logiciel générique qu'on contourne avec des tableurs.</p>
+        <ul>
+          <li>Encaissement en ligne et suivi des paiements</li>
+          <li>Factures, bulletins et documents générés automatiquement</li>
+          <li>Tableaux de bord pour la direction</li>
+        </ul>
+        <p class="proof"><b>Réalisé :</b> plateforme de paiement des familles et automatisation des factures et de la paie pour une prépa santé lyonnaise.</p>
+        <p class="tech">Python (FastAPI) · JavaScript (Vue, Nuxt) · HTML/CSS · Docker · serveurs Linux · paiement en ligne</p>
+      </article>
+      <article class="svc">
+        <h3>Sites web et génération de leads</h3>
+        <p>Des sites rapides, bien référencés, pensés pour transformer une visite en demande de contact.</p>
+        <ul>
+          <li>Site vitrine ou site de contenu</li>
+          <li>Référencement naturel et rédaction</li>
+          <li>Formulaires, qualification et suivi des contacts</li>
+        </ul>
+        <p class="proof"><b>Réalisé :</b> <a href="https://coursavicenne.com" target="_blank" rel="noopener">coursavicenne.com</a>, site d'une prépa santé lyonnaise, conçu pour convertir les visites en demandes d'inscription.</p>
+      </article>
+      <article class="svc">
+        <h3>Conseil en direction</h3>
+        <p>Un regard de directeur pour structurer, réorganiser ou traverser une période de transition.</p>
+        <ul>
+          <li>Organisation, process et indicateurs de pilotage</li>
+          <li>Rapprochements et réorganisations d'établissements</li>
+          <li>Direction de transition</li>
+        </ul>
+        <p class="proof"><b>Expérience :</b> direction d'établissements d'enseignement supérieur privé à Lyon, création et cogérance d'un organisme de formation.</p>
+      </article>
+      <article class="svc">
+        <h3>Communication et stratégie</h3>
+        <p>Savoir à qui l'on parle, ce que l'on dit et par quel canal, à partir de données plutôt que d'intuitions.</p>
+        <ul>
+          <li>Études de marché et veille concurrentielle</li>
+          <li>Questionnaires et enquêtes construits et analysés avec méthode</li>
+          <li>Positionnement et grille tarifaire</li>
+          <li>Plan de communication</li>
+        </ul>
+        <p class="proof"><b>Expérience :</b> six ans responsable des études de marché au Luxembourg, pour la Banque centrale européenne, Mercedes, PwC, Lactalis et d'autres.</p>
+        <p class="tech">Psychométrie · statistiques et analyse de données avec R</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="methode">
+    <div class="sec-head">
+      <span class="label">Méthode</span>
+      <h2>Comment se déroule une mission</h2>
+    </div>
+    <div class="method">
+      <div><h3>Comprendre le métier</h3><p>Je passe du temps avec les personnes qui font le travail. L'outil vient après, jamais avant.</p></div>
+      <div><h3>Construire par étapes</h3><p>Une première version utile en quelques semaines, puis des améliorations à partir de l'usage réel.</p></div>
+      <div><h3>Rendre autonome</h3><p>Prise en main, documentation simple, et un interlocuteur unique qui reste joignable.</p></div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="about">
+      <div class="text">
+        <div class="sec-head" style="margin-bottom:1.5rem">
+          <span class="label">Parcours</span>
+          <h2>Psychométricien de formation, directeur et développeur</h2>
+        </div>
+        <p>Ma spécialité de psychologue est la psychométrie : construire des instruments de mesure (tests d'aptitudes, inventaires de personnalité) et prouver par les statistiques qu'ils mesurent bien ce qu'ils prétendent mesurer. J'en ai gardé une exigence : une décision se fonde sur des données fiables. Ma formation de chef de projet informatique m'a ensuite appris à transformer ces besoins en outils.</p>
+        <p>J'ai ensuite dirigé des études de marché au Luxembourg, conseillé des particuliers et des dirigeants en gestion de patrimoine, créé un organisme de formation, puis dirigé des établissements d'enseignement en développant moi-même les logiciels dont ils avaient besoin.</p>
+        <p>Ce parcours est ce que je vous propose : quelqu'un qui comprend vos contraintes de gestion, qui sait mesurer, et qui sait aussi écrire le code.</p>
+      </div>
+      <ol class="timeline">
+        <li><div class="when">2026 – aujourd'hui</div><div class="what">Directeur général</div><div class="where">Prépa santé, Lyon</div></li>
+        <li><div class="when">2024 – 2026</div><div class="what">Directeur</div><div class="where">École 3A, Lyon</div></li>
+        <li><div class="when">2019 – 2023</div><div class="what">Fondateur et cogérant, Business Fabrik</div><div class="where">Organisme de conseil et de formation : stratégie digitale, communication, marketing. Ingénierie pédagogique, référent qualité Qualiopi.</div></li>
+        <li><div class="when">2009 – 2018</div><div class="what">Consultant puis manager, AS &amp; Associés</div><div class="where">Conseil en gestion de patrimoine : stratégies patrimoniales, fiscales et financières. Formation des nouveaux consultants.</div></li>
+        <li><div class="when">2007 – 2009</div><div class="what">Ingénieur R&amp;D, chef de projet, Centre Henri Tudor</div><div class="where">Luxembourg. Référent études de marché, marketing de l'innovation.</div></li>
+        <li><div class="when">2001 – 2007</div><div class="what">Responsable des études, QUEST</div><div class="where">Luxembourg. Études de marché quantitatives et qualitatives, équipe de 5 chargés d'études et 30 enquêteurs.</div></li>
+        <li><div class="when">1999 – 2002</div><div class="what">Psychométrie, puis informatique</div><div class="where">DESS et DEA de psychologie (construction et validation de tests), Université de Lorraine. Formation de chef de projet systèmes d'information.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <span class="label">Contact</span>
+      <h2>Un projet, une question ?</h2>
+      <p>Décrivez-moi votre besoin en quelques lignes. Je vous réponds sous 48 heures, et le premier échange est gratuit.</p>
+      <div class="coords">
+        <div><span class="label">E-mail</span><span class="v">contact@mathieu-lambert.com</span></div>
+        <div><span class="label">Basé à</span><span class="v">Lyon, interventions à distance</span></div>
+      </div>
+      <div class="cta"><a class="btn" href="mailto:contact@mathieu-lambert.com?subject=Projet">Écrire un e-mail</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Mathieu Lambert · Entrepreneur individuel</p>
+    <details>
+      <summary>Mentions légales</summary>
+      <div class="legal">
+        <p><b>Éditeur :</b> Mathieu Lambert, entrepreneur individuel (micro-entreprise). SIRET : en cours d'immatriculation. Adresse : Lyon (69009). Contact : contact@mathieu-lambert.com.</p>
+        <p><b>Directeur de la publication :</b> Mathieu Lambert.</p>
+        <p><b>Hébergeur :</b> OVH SAS, 2 rue Kellermann, 59100 Roubaix, France.</p>
+        <p><b>Données personnelles :</b> ce site ne dépose aucun cookie et ne collecte aucune donnée. Les e-mails reçus servent uniquement à répondre à votre demande.</p>
+      </div>
+    </details>
+  </footer>
+</div>
+</body>
+</html>
