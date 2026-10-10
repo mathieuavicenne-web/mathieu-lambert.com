@@ -135,7 +135,7 @@ footer .legal p{margin:0}
 .hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;column-gap:clamp(1.5rem,4vw,3.5rem)}
 .hero-text{display:grid;gap:1.75rem;min-width:0}
 .hero-flow{grid-column:1/-1}
-.hero-art{margin:0;position:relative;justify-self:end;width:min(100%,30rem)}
+.hero-art{margin:0;position:relative;justify-self:end;width:min(100%,21rem)}
 .hero-art::before{content:"";position:absolute;inset:12% 6% 0 6%;border-radius:50% 50% 1.5rem 1.5rem;background:var(--spark);opacity:.9}
 .hero-art img{position:relative;display:block;width:100%;height:auto;max-width:100%}
 @media (max-width:700px){.hero{grid-template-columns:1fr}.hero-art{width:min(80%,20rem);justify-self:center}}
@@ -151,7 +151,9 @@ h1,h2,h3{font-weight:800;letter-spacing:-.025em}
 .btn:hover{filter:brightness(1.08)}
 .band .flow,.flow{background:var(--surface);border-color:var(--line);border-radius:14px;position:relative}
 
-.services{background:transparent;border:0;gap:1rem;overflow:visible}
+.services{background:transparent;border:0;gap:1rem;overflow:visible;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:700px){.services{grid-template-columns:1fr}}
+h3{letter-spacing:-.01em}
 .svc{background:var(--surface);border:1px solid var(--line);border-radius:16px;border-top:1px solid var(--line);transition:transform .2s,border-color .2s}
 .svc:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.22)}
 .svc h3::before{display:none}
