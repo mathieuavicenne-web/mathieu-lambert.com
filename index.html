@@ -13,16 +13,17 @@
 :root{
   --bg:#F3F5F8; --surface:#FFFFFF; --ink:#161B26; --muted:#566074; --line:#DAE0E8;
   --accent:#23458F; --accent-soft:#E2E9F5;
+  --band:#132554; --band-ink:#F3F5FB; --band-muted:#B9C4E0; --band-line:rgba(255,255,255,.14); --spark:#F2A93B;
   --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body:"Public Sans", "Helvetica Neue", Arial, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#11151D; --surface:#181E29; --ink:#E6EAF1; --muted:#9AA5B8; --line:#2A3242;
-  --accent:#8FB1F2; --accent-soft:#1B2538; color-scheme:dark}}
+  --accent:#8FB1F2; --accent-soft:#1B2538; --band:#0C1633; --band-ink:#EEF1F8; --band-muted:#A9B4D2; --band-line:rgba(255,255,255,.12); --spark:#F2B24F; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#11151D; --surface:#181E29; --ink:#E6EAF1; --muted:#9AA5B8; --line:#2A3242;
-  --accent:#8FB1F2; --accent-soft:#1B2538; color-scheme:dark}
+  --accent:#8FB1F2; --accent-soft:#1B2538; --band:#0C1633; --band-ink:#EEF1F8; --band-muted:#A9B4D2; --band-line:rgba(255,255,255,.12); --spark:#F2B24F; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);margin:0}
@@ -101,11 +102,43 @@ footer{border-top:1px solid var(--line);padding-block:2rem 3rem;font-size:.85rem
 footer details summary{cursor:pointer;color:var(--ink)}
 footer .legal{display:grid;gap:.5rem;margin-top:1rem;max-width:44rem}
 footer .legal p{margin:0}
+
+/* Bandeau sombre (en-tête, ouverture, contact) */
+.band{background:var(--band);color:var(--band-ink);position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;inset:auto -10% -40% auto;width:min(60vw,46rem);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,rgba(242,169,59,.22),rgba(242,169,59,0) 65%);pointer-events:none}
+.band .wrap{position:relative}
+.band header.top{border-bottom-color:var(--band-line)}
+.band .brand{color:var(--band-ink)}
+.band nav a{color:var(--band-muted)}
+.band nav a:hover{color:var(--band-ink)}
+.band .label{color:var(--spark)}
+.band .hero h1 em{color:var(--spark)}
+.band .hero p.lead{color:var(--band-muted)}
+.band .btn{background:var(--spark);color:#1A1405}
+.band .btn.ghost{background:transparent;color:var(--band-ink);border-color:var(--band-line)}
+.band .flow{background:rgba(255,255,255,.06);border-color:var(--band-line)}
+.band .flow li{border-color:var(--band-line)}
+.band .flow .step{color:var(--spark)}
+.band .flow span.k,.band .flow-cap{color:var(--band-muted)}
+.flow{margin:0;padding:0}
+.flow li:not(:last-child)::after{content:"→";position:absolute;right:-.55rem;top:50%;transform:translateY(-50%);width:1.1rem;height:1.1rem;
+  display:grid;place-items:center;font-size:.75rem;border-radius:50%;background:var(--spark);color:#1A1405;z-index:1}
+@media (max-width:640px){.flow li::after{display:none}}
+.svc{border-top:3px solid transparent;transition:border-color .2s}
+.svc:hover{border-top-color:var(--spark)}
+.svc h3::before{content:"";display:block;width:2.2rem;height:4px;border-radius:2px;background:var(--spark);margin-bottom:.9rem}
+.method div::before{color:var(--spark);font-size:1.6rem;font-family:var(--display);font-weight:700}
+.timeline li::before{border-color:var(--spark)}
+.contact{background:var(--band);color:var(--band-ink)}
+.contact .label{color:var(--spark)}
+.contact .btn{background:var(--spark);color:#1A1405}
+@media (prefers-reduced-motion:reduce){.svc{transition:none}}
 </style>
 
 </head>
 <body>
-<div class="wrap">
+<div class="band"><div class="wrap">
   <header class="top">
     <a class="brand" href="#top" id="top">Mathieu Lambert</a>
     <nav aria-label="Navigation principale">
@@ -137,6 +170,8 @@ footer .legal p{margin:0}
     </div>
   </div>
 
+</div></div>
+<div class="wrap">
   <section id="services">
     <div class="sec-head">
       <span class="label">Services</span>
