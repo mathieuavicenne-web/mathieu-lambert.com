@@ -160,18 +160,37 @@ section{padding-block:clamp(3.5rem,8vw,6rem)}
 .secure .certs span{font:500 .8rem/1 var(--mono);padding:.45rem .6rem;border:1px solid var(--ink)}
 
 /* Fin */
-.final{background:var(--cobalt);color:#fff}
-.final .in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end}
-@media (max-width:800px){.final .in{grid-template-columns:1fr}}
-.final h2{font-size:clamp(2.4rem,6vw,4.8rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase}
-.final p{margin:1rem 0 0;max-width:34rem;color:#DCE2FF}
-.final .btn{background:#fff;color:var(--cobalt);border-color:#fff}
-.final .btn:hover{box-shadow:3px 3px 0 var(--night)}
-footer{background:var(--night);color:#AEB5C0;font-size:.9rem;padding-block:2.5rem}
-footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:1.5rem}
-footer b{color:#fff;display:block;margin-bottom:.3rem}
-footer .legal{margin-top:2rem;padding-top:1rem;border-top:1px solid #2A3038;font:400 .78rem/1.4 var(--mono)}
-
+body{overflow-x:clip}
+.final{background:var(--cobalt);color:#fff;padding-block:clamp(3.5rem,8vw,6rem) 0;position:relative;overflow:hidden}
+.final::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.final .wrap{position:relative;z-index:1}
+.final .tag{color:#C9D2FF}
+.final h2{font-size:clamp(2.4rem,6.4vw,5.2rem);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;margin-top:.8rem}
+.final .lead{margin:1.2rem 0 2rem;max-width:34rem;color:#DCE2FF;font-size:1.1rem}
+.final .ctas .btn{border-color:#fff;color:#fff}
+.final .ctas .btn.white{background:#fff;color:var(--cobalt)}
+.final .ctas .btn:hover{box-shadow:3px 3px 0 var(--night)}
+.assure{margin-top:clamp(2.5rem,6vw,4rem);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.3)}
+.assure div{padding:1.2rem 1.2rem 1.4rem 0;display:grid;gap:.3rem;min-width:0;align-content:start}
+.assure div+div{padding-left:1.2rem;border-left:1px solid rgba(255,255,255,.3)}
+.assure b{font:700 1.05rem/1.25 var(--display)}
+.assure span{font-size:.9rem;color:#DCE2FF}
+@media (max-width:700px){.assure{grid-template-columns:1fr}.assure div,.assure div+div{padding:1rem 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.3)}}
+footer{background:var(--night);color:#AEB5C0;font-size:.92rem;padding-block:clamp(3rem,6vw,4.5rem) 2rem}
+.ft-top{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:2rem}
+@media (max-width:860px){.ft-top{grid-template-columns:repeat(2,minmax(0,1fr))}.ft-brand{grid-column:1/-1}}
+.ft-brand .logo{color:#fff;font-size:2.4rem}
+.ft-brand p{margin:.8rem 0 0;max-width:20rem}
+footer h3{font:500 .75rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#6F7885;margin-bottom:.9rem}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+footer ul a{text-decoration:none;color:#D5DAE1}
+footer ul a:hover{color:#fff}
+.offices{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem}
+.office{border:1px solid #2A3038;padding:1.2rem;display:grid;gap:.35rem}
+.office b{color:#fff;font:700 1.1rem/1.2 var(--display)}
+.office .tag{color:#6F7885}
+.office a{color:#D5DAE1;text-decoration:none;font-weight:600}
+footer .legal{margin-top:2rem;padding-top:1rem;border-top:1px solid #2A3038;font:400 .78rem/1.5 var(--mono);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem}
 /* Garde-fous mobile */
 .hero>*{min-width:0}
 .hero h1{overflow-wrap:break-word;hyphens:manual}
@@ -353,25 +372,53 @@ footer .legal{margin-top:2rem;padding-top:1rem;border-top:1px solid #2A3038;font
   </section>
 
   <section id="contact" class="final">
-    <div class="wrap in">
-      <div>
-        <h2>Prêt à passer à l'action&nbsp;?</h2>
-        <p>Parlons de vos enjeux data et IA, et voyons ensemble comment nous pouvons vous accompagner.</p>
+    <div class="wrap">
+      <p class="tag">Diagnostic de maturité IA</p>
+      <h2>Prêt à passer à l'action&nbsp;?</h2>
+      <p class="lead">Parlons de vos enjeux data et IA, et voyons ensemble comment nous pouvons vous accompagner.</p>
+      <div class="ctas">
+        <a class="btn white" href="https://g2m-ai.com/contact.html">Réserver un diagnostic →</a>
+        <a class="btn" href="tel:+33475782662">04 75 78 26 62</a>
       </div>
-      <a class="btn" href="https://g2m-ai.com/contact.html">Réserver un diagnostic →</a>
+      <div class="assure">
+        <div><b>Périmètre fixé par écrit</b><span>Budget, délais, livrables et ROI mesurable, avant de commencer.</span></div>
+        <div><b>Jusqu'à 50&nbsp;% financé</b><span>Crédit d'impôt innovation, Bpifrance, OPCO.</span></div>
+        <div><b>Données en Europe</b><span>Hébergement français et européen, certifié.</span></div>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="cols">
-      <div><b>G2M</b>Conseil et développement sur mesure en intelligence artificielle.</div>
-      <div><b>Siège</b>1 avenue Maréchal de Lattre de Tassigny<br>26700 Pierrelatte</div>
-      <div><b>Saint-Priest</b>Immeuble Woodclub, 97 allée Alexandre Borodine, ét. 1<br>Saint-Priest</div>
-      <div><b>Téléphone</b>04 75 78 26 62</div>
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a class="logo" href="#top">G2M</a>
+        <p>Conseil et développement sur mesure en intelligence artificielle, pour les TPE, PME et ETI.</p>
+      </div>
+      <div><h3>Offre</h3><ul>
+        <li><a href="https://g2m-ai.com/formation.html">Formation</a></li>
+        <li><a href="https://g2m-ai.com/diagnostic.html">Diagnostic</a></li>
+        <li><a href="https://g2m-ai.com/developpement.html">Développement</a></li>
+      </ul></div>
+      <div><h3>Réalisations</h3><ul>
+        <li><a href="https://g2m-ai.com/cas-usages.html">Cas d'usage</a></li>
+        <li><a href="https://g2m-ai.com/references.html">Références</a></li>
+        <li><a href="https://g2m-ai.com/expertise-developpement.html">R&amp;D</a></li>
+      </ul></div>
+      <div><h3>G2M</h3><ul>
+        <li><a href="https://g2m-ai.com/a-propos.html">À propos</a></li>
+        <li><a href="https://g2m-ai.com/approche.html">Notre approche</a></li>
+        <li><a href="https://g2m-ai.com/certifications.html">Certifications</a></li>
+        <li><a href="https://g2m-ai.com/nous-rejoindre.html">Nous rejoindre</a></li>
+      </ul></div>
     </div>
-    <p class="legal">SAS G2M AI · SIREN 913 016 390 · Maquette non officielle : contenus repris du site public, mise en page proposée.</p>
+    <div class="offices">
+      <div class="office"><span class="tag">Siège</span><b>Pierrelatte</b><span>1 avenue Maréchal de Lattre de Tassigny, 26700 Pierrelatte</span></div>
+      <div class="office"><span class="tag">Agence</span><b>Saint-Priest</b><span>Immeuble Woodclub, 97 allée Alexandre Borodine, étage 1</span></div>
+      <div class="office"><span class="tag">Contact</span><b>04 75 78 26 62</b><a href="https://g2m-ai.com/contact.html">Écrire à l'équipe →</a></div>
+    </div>
+    <div class="legal"><span>SAS G2M AI · SIREN 913 016 390 · <a href="https://g2m-ai.com/" style="color:inherit">Mentions légales</a></span><span>Maquette non officielle · contenus du site public, mise en page proposée</span></div>
   </div>
 </footer>
 </body>
