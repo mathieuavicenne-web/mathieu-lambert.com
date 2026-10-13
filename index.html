@@ -285,6 +285,12 @@ html,body,.band,.svc,.flow,.contact,.method div{transition:background-color .3s,
 .funnel div.hot span{color:var(--bg)}
 .funnel div.hot b{color:var(--accent)}
 @media (prefers-reduced-motion:no-preference){.sc-panel:not([hidden]){animation:scIn .35s ease}@keyframes scIn{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}}
+.sc-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+.sc-stats div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.9rem;display:grid;gap:.3rem;min-width:0}
+.sc-stats b{font:800 clamp(1.3rem,2.6vw,1.75rem)/1 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.sc-stats div:first-child b{color:var(--accent)}
+.sc-stats span{font-size:.8rem;line-height:1.35;color:var(--muted)}
+@media (max-width:480px){.sc-stats{grid-template-columns:1fr}}
 </style>
 
 </head>
@@ -402,7 +408,8 @@ html,body,.band,.svc,.flow,.contact,.method div{transition:background-color .3s,
 
         <div class="sc-panel" role="tabpanel" id="pan-media" aria-labelledby="tab-media" hidden>
           <div class="sc-text">
-            <p class="sc-lead">Un média indépendant qui répond aux vraies questions d'un public, gagne sa confiance, puis transforme une partie de l'audience en demandes qualifiées.</p>
+            <p class="sc-lead">Un média indépendant lancé de zéro en mai 2026. Il répond aux vraies questions d'un public, gagne sa confiance, puis transforme une partie de l'audience en demandes qualifiées.</p>
+            <div class="sc-stats"><div><b>11&nbsp;000</b><span>visites par mois depuis Google</span></div><div><b>250&nbsp;000</b><span>affichages par mois dans les résultats</span></div><div><b>5&nbsp;mois</b><span>pour y arriver, sans publicité</span></div></div>
             <ol class="sc-steps">
               <li><b>Contenus</b><span>Guides, articles et données vérifiées, écrits pour répondre aux questions que le public tape dans Google.</span></li>
               <li><b>Audience</b><span>Référencement naturel : technique, maillage, données structurées, suivi des positions.</span></li>
@@ -415,12 +422,12 @@ html,body,.band,.svc,.flow,.contact,.method div{transition:background-color .3s,
           <figure class="mock" aria-label="Illustration de l'entonnoir d'acquisition">
             <div class="mock-bar"><i></i><i></i><i></i><span>Entonnoir d'acquisition</span></div>
             <div class="mock-body funnel">
-              <div style="--w:1"><span>Visiteurs depuis Google</span><b>Contenus et SEO</b></div>
+              <div style="--w:1"><span>≈ 11 000 visites / mois</span><b>Contenus et SEO</b></div>
               <div style="--w:.78"><span>Lecteurs engagés</span><b>Quiz, calculateurs</b></div>
               <div style="--w:.56"><span>Contacts captés</span><b>Formulaires</b></div>
               <div style="--w:.36" class="hot"><span>Demandes qualifiées</span><b>Séquences Brevo</b></div>
             </div>
-            <figcaption>Illustration du principe, sans chiffres réels</figcaption>
+            <figcaption>Source : Google Search Console, 30 derniers jours au 11 octobre 2026</figcaption>
           </figure>
         </div>
       </section>
